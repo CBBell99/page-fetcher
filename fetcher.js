@@ -14,16 +14,14 @@ request(website, (error, response, content) => {
     return;
   }
   // console.log(body)
-  fs.writeFile(path, content, err => {
-    if (err) {
-      console.error(err);
+  fs.writeFile(path, content, error => {
+    if (error) {
+      console.error(error);
       console.log('PATH NOT FOUND');
       return;
     }
-    console.log(`Downloaded and saved ${response.headers["content-length"]} bytes to ${path}`);
+    console.log(`Downloaded and saved ${content.length} bytes to ${path}`);
   });
 });
 
-//
-// // request()
-// fs.writeFile()
+
